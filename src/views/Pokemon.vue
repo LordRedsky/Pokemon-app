@@ -4,11 +4,11 @@ import PokemonList from "../components/pokemon/PokemonList.vue";
 import PokemonSearch from "../components/pokemon/PokemonSearch.vue";
 import { mapWritableState, mapActions } from "pinia";
 import { usePokemonStore } from "../stores/pokemons";
-import NavBar from "../components/navbar/NavBar.vue";
+// import NavBar from "../components/navbar/NavBar.vue";
 
 export default {
   name: "Pokemon",
-  components: { PokemonDetail, PokemonList, PokemonSearch, NavBar },
+  components: { PokemonDetail, PokemonList, PokemonSearch },
   computed: {
     ...mapWritableState(usePokemonStore, ["imageUrl", "apiUrl", "isShowDetail"]),
   },
@@ -20,9 +20,8 @@ export default {
 </script>
 
 <template>
-  <main class="container">
-    <NavBar/>
-    <h1>POKEMON'S</h1>
+  <main>
+  <h1>Pokemon</h1>
     <PokemonSearch />
     <PokemonList />
     <PokemonDetail v-if="isShowDetail === true" @click.prevent="closeDetail" />
@@ -45,16 +44,6 @@ main {
   font-family: "Acme", sans-serif;
   font-size: 1rem;
   font-weight: normal;
-}
-
-.pagination {
-  margin-top: 20px;
-  margin-bottom: -20px;
-  display: inline-block;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  background-color: red;
 }
 
 h1 {

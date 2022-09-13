@@ -67,7 +67,7 @@ export default {
 
       <div class="image-pokeball">
         <img class="ball" src="../../assets/PokeBallSVG.svg" />
-        <span class="catch">CATCH</span>
+        <!-- <span class="catch">CATCH</span> -->
       </div>
     </div>
     <Spinner v-else />
@@ -133,14 +133,14 @@ export default {
   flex-direction: column;
   /* margin-bottom: 10px; */
   /* top: -100px; */
-  /* background-color: rgb(109, 109, 109); */
+  background-color: rgb(109, 109, 109);
   border-radius: 50%;
-  padding: .1em;
-  /* position: absolute; */
-  /* box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2); */
+  /* padding: .1rem; */
+  position: relative;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 .image-pokeball .ball {
-  /* position: absolute; */
+    position: absolute;
   height: 50px;
   padding: 0.4em;
 }
@@ -154,8 +154,11 @@ export default {
     /* display: none; */
 }
 
-.image-pokeball .ball:hover {
+.image-pokeball:hover .ball {
     height: 70px;
+    border-radius: 50%;
+    /* background-color: rgb(109, 109, 109); */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 .data {
