@@ -3,23 +3,24 @@ import PokemonDetail from "../components/pokemon/PokemonDetail.vue";
 import PokemonList from "../components/pokemon/PokemonList.vue";
 import { mapWritableState, mapActions } from "pinia";
 import { usePokemonStore } from "../stores/pokemons";
+import PokemonSearch from "../components/pokemon/PokemonSearch.vue";
 
 export default {
   name: "Pokemon",
-  components: { PokemonDetail, PokemonList },
+  components: { PokemonDetail, PokemonList, PokemonSearch },
   computed: {
     ...mapWritableState(usePokemonStore, ["imageUrl", "apiUrl", "isShowDetail"]),
   },
 
   methods: {
     ...mapActions(usePokemonStore, ["closeDetail"]),
-   
   },
 };
 </script>
 
 <template>
   <main>
+    <PokemonSearch />
     <PokemonList />
     <PokemonDetail v-if="isShowDetail === true" @click.prevent="closeDetail" />
   </main>

@@ -147,9 +147,6 @@ nav ul li a span {
 }
 
 /* Responsive Breakpoint*/
-/* Tablet size*/
-
-/* Mobile size*/
 @media screen and (max-width: 660px) {
   .menu-toggle {
     display: flex;
@@ -182,6 +179,7 @@ nav ul li a span {
   nav ul.slide {
     opacity: 1;
     transform: translateX(0);
+    /* z-index: 1; */
   }
 }
 </style>

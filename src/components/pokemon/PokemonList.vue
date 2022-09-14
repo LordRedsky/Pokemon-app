@@ -99,7 +99,6 @@ export default {
 
 <style scoped>
 .lists {
-  margin-top: 75px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -107,7 +106,6 @@ export default {
   grid-gap: 40px;
   padding-top: 30px;
   width: 100%;
-  /* background-color: red; */
 }
 
 .lists article {

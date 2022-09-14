@@ -13,7 +13,8 @@ export const usePokemonStore = defineStore({
     pokemonUrl: '',
     isShowDetail: false,
     pokemonCollectionsId: [],
-    showDetailCollection: false
+    showDetailCollection: false,
+    searchValue: ''
   }),
 
   actions: {

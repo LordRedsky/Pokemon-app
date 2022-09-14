@@ -67,6 +67,9 @@ export default {
       <div v-if="detailPokemon" class="image">
         <img :src="`${imageUrl}/${detailPokemon.id}.svg`" />
       </div>
+      <div v-if="!detailPokemon" class="not-found">
+      <h1>The Pokemon Was Not Found!</h1>
+      </div>
 
       <div v-if="detailPokemon" class="data">
         <h2>{{ detailPokemon.name }}</h2>
@@ -220,5 +223,9 @@ h2 {
   color: whitesmoke;
   padding: 0.4em;
   border-radius: 15px;
+}
+
+.not-found {
+  margin-top: -50px;
 }
 </style>
