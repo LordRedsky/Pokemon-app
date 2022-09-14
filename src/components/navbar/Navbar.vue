@@ -83,7 +83,7 @@ nav ul {
 
 nav ul li a {
   /* color: radial-gradient(#156f99, #0a2e50); */
-  color: #0a2e50;
+  color: radial-gradient(#156f99, #0a2e50);;
   text-decoration: none;
   font-size: 30px;
   font-weight: bold;
@@ -159,7 +159,7 @@ nav ul li a span {
     right: 0;
     top: 0;
     height: 100vh;
-    width: 50%;
+    width: 70%;
     position: absolute;
     flex-direction: column;
     align-items: center;
