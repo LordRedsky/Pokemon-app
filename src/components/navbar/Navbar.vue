@@ -182,7 +182,6 @@ nav ul li a span {
   nav ul.slide {
     opacity: 1;
     transform: translateX(0);
-    /* z-index: 1; */
   }
 }
 </style>

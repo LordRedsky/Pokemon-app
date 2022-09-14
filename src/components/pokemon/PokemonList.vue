@@ -62,6 +62,7 @@ export default {
     this.fetchDataPokemon();
     this.showDetailCollection = false;
   },
+
   mounted() {
     this.scrollTrigger();
   },
@@ -77,10 +78,9 @@ export default {
       @click.prevent="setPokemonUrl(pokemon.id)"
     >
       <img
+        class="poke-img"
         :src="`${imageUrl}/${pokemon.id}.svg`"
         :alt="`${pokemon.name}`"
-        width="100"
-        height="100"
       />
       <h3>{{ pokemon.name }}</h3>
     </article>
@@ -93,30 +93,68 @@ export default {
 <style scoped>
 .lists {
   margin-top: 75px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  grid-gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 40px;
+  padding-top: 30px;
   width: 100%;
 }
 
 .lists article {
-  height: 150px;
+  align-items: center;
+  height: 300px;
+  width: 200px;
   background-color: whitesmoke;
   text-align: center;
   text-transform: capitalize;
   border-radius: 10px;
-  padding: 5px;
+  padding: 10px;
   cursor: pointer;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 
+.poke-img {
+  width: 200px;
+  height: 200px;
+}
+
 .lists h3 {
   margin: 0;
+  font-size: 30px;
 }
 
 #scroll-trigger {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 760px) {
+  .lists {
+    margin-top: 75px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px 20px;
+    width: 100%;
+  }
+
+  .lists article {
+    height: 200px;
+    width: 250;
+    align-items: center;
+    background-color: whitesmoke;
+    text-align: center;
+    text-transform: capitalize;
+    border-radius: 10px;
+  }
+
+  .poke-img {
+    width: 150px;
+    height: 150px;
+  }
 }
 </style>

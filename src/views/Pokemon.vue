@@ -13,6 +13,7 @@ export default {
 
   methods: {
     ...mapActions(usePokemonStore, ["closeDetail"]),
+   
   },
 };
 </script>

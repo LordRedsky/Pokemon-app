@@ -56,13 +56,13 @@ export default {
       :key="`poke${i}`"
     >
       <div @click.prevent="openDetailHandler(pokemon.id)">
-        <img
+        <img class="poke-img"
           :src="`${imageUrl}/${pokemon.id}.svg`"
           :alt="`${pokemon.name}`"
           width="100"
           height="100"
         />
-        <h3>{{ pokemon.name }}</h3>
+        <h3 class="poke-name">{{ pokemon.name }}</h3>
       </div>
       <div class="image-pokeball" @click.prevent="releaseHandler(i)">
         <img class="ball" src="../../assets/PokeBallSVG.svg" />
@@ -100,8 +100,20 @@ h1 {
   color: whitesmoke;
 }
 
+.poke-img {
+  width: 200px;
+  height: 200px;
+}
+
+.poke-name {
+  margin: 0;
+  font-size: 30px;
+}
+
 .collection article {
-  height: 180px;
+  align-items: center;
+  height: 300px;
+  width: 200px;
   background-color: whitesmoke;
   text-align: center;
   text-transform: capitalize;
@@ -116,7 +128,7 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: -5px;
+  margin-top: 37px;
 }
 .image-pokeball .ball {
   height: 50px;
