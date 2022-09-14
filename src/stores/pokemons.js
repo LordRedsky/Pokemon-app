@@ -5,7 +5,7 @@ export const usePokemonStore = defineStore({
   id: 'PokemonStore',
   state: () => ({
     imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world',
-    apiUrl: 'https://pokeapi.co/api/v2/pokemon-species/?offset=0&limit=20',
+    apiUrl: 'https://pokeapi.co/api/v2/pokemon-species/?offset=0&limit=60',
     pokemons: [],
     detilPokemon: {},
     nextUrl: '',

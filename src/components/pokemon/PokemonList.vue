@@ -42,21 +42,28 @@ export default {
           console.log(error);
         });
     },
+
     scrollTrigger() {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-          if (entry.intersectionRatio > 0 && this.nextUrl) {
+          if (entry.intersectionRatio > 0 || this.pokemons.length >= 10) {
             this.next();
           }
+          // if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight) {
+          //   this.next()
+          // }
+          e;
         });
       });
       observer.observe(this.$refs.infinitescrolltrigger);
     },
+
     next() {
       this.currentUrl = this.nextUrl;
       this.fetchDataPokemon();
     },
   },
+
   created() {
     this.currentUrl = this.apiUrl;
     this.fetchDataPokemon();
@@ -100,6 +107,7 @@ export default {
   grid-gap: 40px;
   padding-top: 30px;
   width: 100%;
+  /* background-color: red; */
 }
 
 .lists article {
