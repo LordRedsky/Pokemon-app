@@ -13,6 +13,7 @@ export default {
       "imageUrl",
       "showDetailCollection",
       "isShowDetail",
+      "pokemons",
     ]),
   },
   components: { Spinner, PokemonDetail },
@@ -43,6 +44,7 @@ export default {
   },
   created() {
     this.showDetailCollection = false;
+    // this.pokemons = [];
   },
 };
 </script>
@@ -165,11 +167,11 @@ span {
   }
 
   .image-pokeball {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 1px;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1px;
+  }
 }
 </style>

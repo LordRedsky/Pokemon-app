@@ -38,7 +38,7 @@ export default {
   position: relatife;
   width: 100%;
   max-width: 510px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 
 .searchBar input {
