@@ -56,7 +56,8 @@ export default {
       :key="`poke${i}`"
     >
       <div @click.prevent="openDetailHandler(pokemon.id)">
-        <img class="poke-img"
+        <img
+          class="poke-img"
           :src="`${imageUrl}/${pokemon.id}.svg`"
           :alt="`${pokemon.name}`"
           width="100"
@@ -137,5 +138,38 @@ h1 {
 
 span {
   color: whitesmoke;
+}
+
+@media screen and (max-width: 490px) {
+  .collection article {
+    align-items: center;
+    height: 150px;
+    width: 150px;
+    background-color: whitesmoke;
+    text-align: center;
+    text-transform: capitalize;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .poke-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .poke-name {
+    margin: 0;
+    font-size: 20px;
+  }
+
+  .image-pokeball {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1px;
+}
 }
 </style>

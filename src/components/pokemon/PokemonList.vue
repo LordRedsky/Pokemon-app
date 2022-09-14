@@ -131,20 +131,19 @@ export default {
   align-items: center;
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 490px) {
   .lists {
     margin-top: 75px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 20px 20px;
     width: 100%;
   }
 
   .lists article {
-    height: 200px;
-    width: 250;
+    height: 150px;
+    width: 150px;
     align-items: center;
     background-color: whitesmoke;
     text-align: center;
@@ -153,8 +152,13 @@ export default {
   }
 
   .poke-img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
+  }
+
+  .lists h3 {
+    margin: 0;
+    font-size: 20px;
   }
 }
 </style>
