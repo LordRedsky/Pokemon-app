@@ -229,4 +229,11 @@ h2 {
   text-align: center;
   margin-top: -50px;
 }
+
+@media screen and (max-width: 428px) {
+  .not-found {
+    text-align: center;
+    margin-top: -50px;
+  }
+}
 </style>

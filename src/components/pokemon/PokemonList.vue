@@ -165,34 +165,4 @@ export default {
   }
 }
 
-/* @media screen and (max-width: 400px) {
-  .lists {
-    margin-top: 75px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .lists article {
-    height: 150px;
-    width: 150px;
-    align-items: center;
-    background-color: whitesmoke;
-    text-align: center;
-    text-transform: capitalize;
-    border-radius: 10px;
-  }
-
-  .poke-img {
-    width: 100px;
-    height: 100px;
-  }
-
-  .lists h3 {
-    margin: 0;
-    font-size: 20px;
-  }
-} */
 </style>
