@@ -3,10 +3,15 @@ import { usePokemonStore } from "../../stores/pokemons";
 import { mapWritableState, mapActions } from "pinia";
 
 import Spinner from "../spinner/Spinner.vue";
-import { onMounted } from "vue";
 
 export default {
   name: "PokemonList",
+  data: () => {
+    return {
+      pokemonList: [],
+    };
+  },
+
   computed: {
     ...mapWritableState(usePokemonStore, [
       "apiUrl",
@@ -37,7 +42,6 @@ export default {
               })
               .pop();
             this.pokemons.push(pokemon);
-            // console.log(this.pokemons[this.pokemons.length - 1]);
           });
         })
         .catch((error) => {
@@ -46,7 +50,6 @@ export default {
     },
 
     scrollTrigger() {
-      // const section = document.querySelector(this.pokemons[this.pokemons.length - 1]);
       const section = document.querySelector(".lists");
       const options = {
         root: null,
@@ -74,15 +77,13 @@ export default {
   created() {
     if (this.pokemons.length === 0) {
       this.currentUrl = this.apiUrl;
-      this.fetchDataPokemon();
       this.showDetailCollection = false;
+      this.fetchDataPokemon();
     }
   },
 
   mounted() {
-    // if (this.pokemons.length > 0) {
     this.scrollTrigger();
-    // }
   },
   components: { Spinner },
 };
@@ -113,7 +114,6 @@ export default {
 
 <style scoped>
 .lists {
-  /* margin-top: 300px; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -132,6 +132,7 @@ export default {
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
+  padding: 10px;
 }
 
 .poke-img {
@@ -151,24 +152,26 @@ export default {
 }
 
 #scroll-trigger {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .load-more {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding: 1em;
-    border-radius: 10px;
-    font-size: larger;
-    text-transform: capitalize;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
-    background-color: #ffcb05 ;
-    color: radial-gradient(#156f99, #0a2e50);
-    font-weight: 700;
-    width: 300px;
-  }
+.load-more {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  padding: 1em;
+  border-radius: 10px;
+  font-size: larger;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
+  background-color: #ffcb05;
+  color: radial-gradient(#156f99, #0a2e50);
+  width: 300px;
+
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
 
 @media screen and (max-width: 428px) {
   .lists {
@@ -198,16 +201,5 @@ export default {
     margin: 0;
     font-size: 20px;
   }
-
-  /* #scroll-trigger {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: red;
-  }
-
-  .load-more {
-    padding: 2em;
-  } */
 }
 </style>
