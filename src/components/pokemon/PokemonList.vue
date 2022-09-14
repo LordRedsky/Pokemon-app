@@ -104,7 +104,6 @@ export default {
   align-items: center;
   justify-content: center;
   grid-gap: 40px;
-  padding-top: 30px;
   width: 100%;
 }
 
@@ -116,7 +115,6 @@ export default {
   text-align: center;
   text-transform: capitalize;
   border-radius: 10px;
-  padding: 10px;
   cursor: pointer;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
 }
@@ -137,7 +135,37 @@ export default {
   align-items: center;
 }
 
-@media screen and (max-width: 490px) {
+@media screen and (max-width: 428px) {
+  .lists {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .lists article {
+    height: 150px;
+    width: 150px;
+    align-items: center;
+    background-color: whitesmoke;
+    text-align: center;
+    text-transform: capitalize;
+    border-radius: 10px;
+  }
+
+  .poke-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .lists h3 {
+    margin: 0;
+    font-size: 20px;
+  }
+}
+
+/* @media screen and (max-width: 400px) {
   .lists {
     margin-top: 75px;
     display: flex;
@@ -166,5 +194,5 @@ export default {
     margin: 0;
     font-size: 20px;
   }
-}
+} */
 </style>

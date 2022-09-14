@@ -18,7 +18,7 @@ export default {
       "imageUrl",
       "detailPokemon",
       "pokemonCollections",
-      "showDetailCollection"
+      "showDetailCollection",
     ]),
   },
   methods: {
@@ -42,8 +42,8 @@ export default {
     },
 
     collectionHandler() {
-      const name = this.detailPokemon.name
-      const id = this.detailPokemon.id
+      const name = this.detailPokemon.name;
+      const id = this.detailPokemon.id;
 
       Swal.fire({
         icon: "success",
@@ -68,7 +68,7 @@ export default {
         <img :src="`${imageUrl}/${detailPokemon.id}.svg`" />
       </div>
       <div v-if="!detailPokemon" class="not-found">
-      <h1>The Pokemon Was Not Found!</h1>
+        <h1>The Pokemon Was Not Found!</h1>
       </div>
 
       <div v-if="detailPokemon" class="data">
@@ -90,7 +90,7 @@ export default {
         </div>
       </div>
 
-      <div class="image-pokeball"  @click.prevent="collectionHandler">
+      <div class="image-pokeball" @click.prevent="collectionHandler">
         <img class="ball" src="../../assets/PokeBallSVG.svg" />
       </div>
     </div>
@@ -226,6 +226,7 @@ h2 {
 }
 
 .not-found {
+  text-align: center;
   margin-top: -50px;
 }
 </style>
