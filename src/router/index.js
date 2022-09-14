@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/Pokemon.vue'
-import Detail from '../components/pokemon/PokemonDetail.vue'
-import List from '../components/pokemon/PokemonList.vue'
+import Collections from '../components/pokemon/PokemonCatched.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,14 +11,9 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/detail',
-      name: 'detail',
-      component: Detail
-    },
-    {
-      path: '/lists',
-      name: 'lists',
-      component: List
+      path: '/collections',
+      name: 'collections',
+      component: Collections
     }
   ]
 })

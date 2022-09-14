@@ -11,12 +11,14 @@ export const usePokemonStore = defineStore({
     nextUrl: '',
     currentUrl: '',
     pokemonUrl: '',
-    isShowDetail: false
-
+    isShowDetail: false,
+    pokemonCollectionsId: [],
+    showDetailCollection: false
   }),
 
   actions: {
     setPokemonUrl(id) {
+      console.log(id);
       this.pokemonUrl = `https://pokeapi.co/api/v2/pokemon-species/${id}`
       this.isShowDetail = true
     },
@@ -24,6 +26,14 @@ export const usePokemonStore = defineStore({
     closeDetail() {
       this.pokemonUrl = ''
       this.isShowDetail = false
+    },
+
+    setCollection(id, name) {
+      console.log(id, name);
+      const collection = {
+        id: id, name: name
+      }
+      this.pokemonCollectionsId.push(collection)
     }
   }
 })

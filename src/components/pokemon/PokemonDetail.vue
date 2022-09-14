@@ -1,8 +1,9 @@
 <script>
-import { mapWritableState } from "pinia";
+import { mapActions, mapWritableState } from "pinia";
 import { usePokemonStore } from "../../stores/pokemons";
 
 import Spinner from "../spinner/Spinner.vue";
+import Swal from "sweetalert2/dist/sweetalert2.js";
 
 export default {
   name: "PokemonDetail",
@@ -12,9 +13,16 @@ export default {
     };
   },
   computed: {
-    ...mapWritableState(usePokemonStore, ["pokemonUrl", "imageUrl", "detailPokemon"]),
+    ...mapWritableState(usePokemonStore, [
+      "pokemonUrl",
+      "imageUrl",
+      "detailPokemon",
+      "pokemonCollections",
+      "showDetailCollection"
+    ]),
   },
   methods: {
+    ...mapActions(usePokemonStore, ["setCollection"]),
     fetcDetailPokemon() {
       let req = new Request(this.pokemonUrl);
       fetch(req)
@@ -26,10 +34,24 @@ export default {
         .then((data) => {
           this.detailPokemon = data;
           this.show = true;
+          console.log(data);
         })
         .catch((error) => {
           console.log(error);
         });
+    },
+
+    collectionHandler() {
+      const name = this.detailPokemon.name
+      const id = this.detailPokemon.id
+
+      Swal.fire({
+        icon: "success",
+        title: `You catch the ${name}`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      this.setCollection(id, name);
     },
   },
   created() {
@@ -65,9 +87,8 @@ export default {
         </div>
       </div>
 
-      <div class="image-pokeball">
+      <div class="image-pokeball"  @click.prevent="collectionHandler">
         <img class="ball" src="../../assets/PokeBallSVG.svg" />
-        <!-- <span class="catch">CATCH</span> -->
       </div>
     </div>
     <Spinner v-else />
@@ -131,34 +152,26 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* margin-bottom: 10px; */
-  /* top: -100px; */
   background-color: rgb(109, 109, 109);
   border-radius: 50%;
-  /* padding: .1rem; */
   position: relative;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 .image-pokeball .ball {
-    position: absolute;
+  position: absolute;
   height: 50px;
   padding: 0.4em;
 }
 
 .catch {
-    /* background-color: red; */
-    /* margin-top: 1000px; */
-    /* position: relative; */
-    margin-top: -5px;
-    font-size: 20px;
-    /* display: none; */
+  margin-top: -5px;
+  font-size: 20px;
 }
 
-.image-pokeball:hover .ball {
-    height: 70px;
-    border-radius: 50%;
-    /* background-color: rgb(109, 109, 109); */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
+.image-pokeball .ball:hover {
+  height: 70px;
+  border-radius: 50%;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 
 .data {

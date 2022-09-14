@@ -13,6 +13,7 @@ export default {
       "nextUrl",
       "pokemons",
       "currentUrl",
+      "showDetailCollection",
     ]),
   },
   methods: {
@@ -59,6 +60,7 @@ export default {
   created() {
     this.currentUrl = this.apiUrl;
     this.fetchDataPokemon();
+    this.showDetailCollection = false;
   },
   mounted() {
     this.scrollTrigger();
@@ -90,6 +92,7 @@ export default {
 
 <style scoped>
 .lists {
+  margin-top: 75px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-gap: 10px;
