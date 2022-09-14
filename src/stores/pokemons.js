@@ -18,7 +18,6 @@ export const usePokemonStore = defineStore({
 
   actions: {
     setPokemonUrl(id) {
-      console.log(id);
       this.pokemonUrl = `https://pokeapi.co/api/v2/pokemon-species/${id}`
       this.isShowDetail = true
     },
@@ -29,7 +28,6 @@ export const usePokemonStore = defineStore({
     },
 
     setCollection(id, name) {
-      console.log(id, name);
       const collection = {
         id: id, name: name
       }

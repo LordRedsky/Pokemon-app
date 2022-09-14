@@ -83,14 +83,14 @@ nav ul {
 
 nav ul li a {
   /* color: radial-gradient(#156f99, #0a2e50); */
-  color: rgb(255, 188, 4);
+  color: #0a2e50;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 30px;
   font-weight: bold;
 }
 
 nav ul li a:hover {
-  color: #0a2e50;
+  color: rgb(255, 188, 4);
 }
 
 nav ul li a span {
@@ -120,7 +120,7 @@ nav ul li a span {
   display: block;
   width: 28px;
   height: 3px;
-  background-color:rgb(255, 188, 4);
+  background-color: rgb(255, 188, 4);
 }
 /*Hamburger Animation*/
 .menu-toggle span:nth-child(2) {
@@ -132,7 +132,7 @@ nav ul li a span {
 }
 
 .menu-toggle input:checked ~ span:nth-child(2) {
-  background-color:rgb(255, 188, 4);
+  background-color: rgb(255, 188, 4);
   transform: rotate(45deg) translate(-1px, -1px);
 }
 
@@ -159,7 +159,7 @@ nav ul li a span {
     right: 0;
     top: 0;
     height: 100vh;
-    width:50%;
+    width: 50%;
     position: absolute;
     flex-direction: column;
     align-items: center;
@@ -174,10 +174,10 @@ nav ul li a span {
   }
 
   nav ul li a {
-  font-size: 40px;
-  font-weight: bold;
-  margin-right: 70px;
-}
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 70px;
+  }
 
   nav ul.slide {
     opacity: 1;
