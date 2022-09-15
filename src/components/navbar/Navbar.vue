@@ -52,7 +52,7 @@ nav {
   justify-content: space-around;
   padding: 15px;
   height: 50px;
-  color: rgb(237, 179, 172);
+  /* color: rgb(237, 179, 172); */
   align-items: center;
   width: 100%;
   position: fixed;
@@ -65,6 +65,10 @@ nav {
   align-items: center;
   justify-content: center;
 }
+
+.title img {
+  width: 200px;
+}
 .logo {
   width: 150px;
 }
@@ -76,13 +80,17 @@ nav .title {
 nav ul {
   display: flex;
   list-style: none;
-  width: 40%;
+  width: 60%;
   justify-content: flex-end;
-  gap: 30px;
+  gap: 20px;
+  padding: 20px;
+}
+
+nav ul li {
+  margin-right: 20px;
 }
 
 nav ul li a {
-  /* color: radial-gradient(#156f99, #0a2e50); */
   color: radial-gradient(#156f99, #0a2e50);
   text-decoration: none;
   font-size: 30px;
@@ -90,7 +98,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: rgb(255, 188, 4);
+  color: #ffcb05;
 }
 
 nav ul li a span {
