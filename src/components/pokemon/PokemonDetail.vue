@@ -44,16 +44,29 @@ export default {
     collectionHandler() {
       const name = this.detailPokemon.name;
       const id = this.detailPokemon.id;
+      const catch_rate = this.detailPokemon.capture_rate;
+      const generate = Math.floor(Math.random() * 255);
 
-      Swal.fire({
-        icon: "success",
-        title: `You catch the ${name}`,
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      this.setCollection(id, name);
+      console.log(catch_rate, generate, "<<<<<<");
+      if (+catch_rate > generate) {
+        Swal.fire({
+          icon: "success",
+          title: `You catch the ${name}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        this.setCollection(id, name);
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: `Failled to catch the ${name}`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
     },
   },
+  
   created() {
     this.fetcDetailPokemon();
   },
