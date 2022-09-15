@@ -44,7 +44,6 @@ export default {
   },
   created() {
     this.showDetailCollection = false;
-    // this.pokemons = [];
   },
 };
 </script>

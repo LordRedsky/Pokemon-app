@@ -2,8 +2,6 @@
 import { usePokemonStore } from "../../stores/pokemons";
 import { mapWritableState, mapActions } from "pinia";
 
-import Spinner from "../spinner/Spinner.vue";
-
 export default {
   name: "PokemonList",
   data: () => {
@@ -54,18 +52,15 @@ export default {
       const options = {
         root: null,
         threshhold: 0,
-        // rootMargin: "200px",
       };
       const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
-          // console.log(entry);
           if (entry.intersectionRatio > 0) {
             this.next();
           }
         });
       }, options);
       observer.observe(this.$refs.infinitescrolltrigger);
-      // observer.observe(section);
     },
 
     next() {
@@ -85,7 +80,6 @@ export default {
   mounted() {
     this.scrollTrigger();
   },
-  components: { Spinner },
 };
 </script>
 
@@ -103,12 +97,9 @@ export default {
       />
       <h3>{{ pokemon.name }}</h3>
     </article>
-    <!-- ref="infinitescrolltrigger" -->
-    <!-- @click.prevent="next" -->
   </div>
   <div id="scroll-trigger" ref="infinitescrolltrigger">
     <button class="load-more" @click.prevent="next">load more</button>
-    <!-- <Spinner /> -->
   </div>
 </template>
 

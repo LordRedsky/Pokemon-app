@@ -34,7 +34,6 @@ export default {
         .then((data) => {
           this.detailPokemon = data;
           this.show = true;
-          console.log(data);
         })
         .catch((error) => {
           console.log(error);
@@ -46,8 +45,7 @@ export default {
       const id = this.detailPokemon.id;
       const catch_rate = this.detailPokemon.capture_rate;
       const generate = Math.floor(Math.random() * 255);
-
-      // console.log(catch_rate, generate, "<<<<<<");
+      
       if (+catch_rate > generate) {
         Swal.fire({
           icon: "success",
