@@ -47,7 +47,7 @@ export default {
       const catch_rate = this.detailPokemon.capture_rate;
       const generate = Math.floor(Math.random() * 255);
 
-      console.log(catch_rate, generate, "<<<<<<");
+      // console.log(catch_rate, generate, "<<<<<<");
       if (+catch_rate > generate) {
         Swal.fire({
           icon: "success",
@@ -66,7 +66,7 @@ export default {
       }
     },
   },
-  
+
   created() {
     this.fetcDetailPokemon();
   },
