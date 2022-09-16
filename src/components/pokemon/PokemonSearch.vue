@@ -11,8 +11,7 @@ export default {
 
     searchHandler() {
       if (this.searchValue !== "") {
-        // console.log(this.searchValue, '<<<search value>>>>');
-        this.setPokemonUrl(this.searchValue);
+        this.setPokemonUrl(this.searchValue.toLocaleLowerCase());
       }
 
       this.searchValue = "";
