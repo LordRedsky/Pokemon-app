@@ -9,7 +9,12 @@ export default {
   name: "Pokemon",
   components: { PokemonDetail, PokemonList, PokemonSearch },
   computed: {
-    ...mapWritableState(usePokemonStore, ["imageUrl", "apiUrl", "isShowDetail"]),
+    ...mapWritableState(usePokemonStore, [
+      "imageUrl",
+      "apiUrl",
+      "isShowDetail",
+      "pokemons",
+    ]),
   },
 
   methods: {

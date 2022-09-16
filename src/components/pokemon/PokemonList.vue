@@ -1,15 +1,17 @@
 <script>
 import { usePokemonStore } from "../../stores/pokemons";
 import { mapWritableState, mapActions } from "pinia";
+import Spinner from "../spinner/Spinner.vue";
 
 export default {
   name: "PokemonList",
   data: () => {
     return {
       pokemonList: [],
+      trigger: false,
+      color: "green",
     };
   },
-
   computed: {
     ...mapWritableState(usePokemonStore, [
       "apiUrl",
@@ -21,7 +23,12 @@ export default {
     ]),
   },
   methods: {
-    ...mapActions(usePokemonStore, ["setPokemonUrl"]),
+    ...mapActions(usePokemonStore, [
+      "setPokemonUrl",
+      "fetchDataPokemon",
+      "scrollTrigger",
+      "next",
+    ]),
     fetchDataPokemon() {
       let req = new Request(this.currentUrl);
       fetch(req)
@@ -31,6 +38,7 @@ export default {
           }
         })
         .then((data) => {
+          console.log(data, "<<<<DATA");
           this.nextUrl = data.next;
           data.results.forEach((pokemon) => {
             pokemon.id = pokemon.url
@@ -40,13 +48,13 @@ export default {
               })
               .pop();
             this.pokemons.push(pokemon);
+            // console.log(pokemon, '<<>>');
           });
         })
         .catch((error) => {
           console.log(error);
         });
     },
-
     scrollTrigger() {
       const section = document.querySelector(".lists");
       const options = {
@@ -57,18 +65,17 @@ export default {
         entries.forEach((entry) => {
           if (entry.intersectionRatio > 0) {
             this.next();
+            this.trigger = true;
           }
         });
       }, options);
       observer.observe(this.$refs.infinitescrolltrigger);
     },
-
     next() {
       this.currentUrl = this.nextUrl;
       this.fetchDataPokemon();
     },
   },
-
   created() {
     if (this.pokemons.length === 0) {
       this.currentUrl = this.apiUrl;
@@ -76,10 +83,10 @@ export default {
       this.fetchDataPokemon();
     }
   },
-
   mounted() {
     this.scrollTrigger();
   },
+  components: { Spinner },
 };
 </script>
 
@@ -88,7 +95,7 @@ export default {
     <article
       v-for="(pokemon, i) in pokemons"
       :key="`poke${i}`"
-      @click.prevent="setPokemonUrl(pokemon.id)"
+      @click.prevent="this.setPokemonUrl(pokemon.id)"
     >
       <img
         class="poke-img"
@@ -99,7 +106,8 @@ export default {
     </article>
   </div>
   <div id="scroll-trigger" ref="infinitescrolltrigger">
-    <button class="load-more" @click.prevent="next">load more</button>
+    <button v-if="trigger" class="load-more" @click.prevent="next">load more</button>
+    <!-- <Spinner v-if="!trigger || pokemons.length === 0" class="spinner" /> -->
   </div>
 </template>
 
@@ -109,14 +117,14 @@ export default {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  grid-gap: 40px;
+  grid-gap: 25px;
   width: 100%;
 }
 
 .lists article {
   align-items: center;
-  height: 300px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   background-color: whitesmoke;
   text-align: center;
   text-transform: capitalize;
@@ -126,14 +134,26 @@ export default {
   padding: 10px;
 }
 
+/* .lists article:hover .poke-img {
+  position: absolute;
+  margin-left: -76px;
+  height: 150px;
+  width: 150px;
+  margin-bottom: -100px;
+  background-color: #ffcb05;
+  border-radius: 10px;
+  /* box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2); */
+/* color: white; */
+/* }  */
+
 .poke-img {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
 }
 
 .lists h3 {
   margin: 0;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 #scroll-trigger {
@@ -157,11 +177,15 @@ export default {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
   background-color: #ffcb05;
   color: radial-gradient(#156f99, #0a2e50);
-  width: 300px;
+  width: 200px;
 
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 700;
   text-transform: capitalize;
+}
+
+.spinner {
+  margin-top: 60px;
 }
 
 @media screen and (max-width: 428px) {

@@ -14,7 +14,8 @@ export const usePokemonStore = defineStore({
     isShowDetail: false,
     pokemonCollectionsId: [],
     showDetailCollection: false,
-    searchValue: ''
+    searchValue: '',
+    isCatch: true
   }),
 
   actions: {
@@ -33,6 +34,6 @@ export const usePokemonStore = defineStore({
         id: id, name: name
       }
       this.pokemonCollectionsId.push(collection)
-    }
+    },
   }
 })

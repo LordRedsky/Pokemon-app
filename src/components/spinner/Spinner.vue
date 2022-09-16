@@ -18,8 +18,8 @@ export default {
 .lds-dual-ring:after {
   content: " ";
   display: block;
-  width: 64px;
-  height: 64px;
+  width: 100px;
+  height: 100px;
   margin: 8px;
   border-radius: 50%;
   border: 6px solid #fff;

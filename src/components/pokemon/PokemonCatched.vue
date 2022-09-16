@@ -137,6 +137,13 @@ h1 {
   padding: 0.4em;
 }
 
+.image-pokeball .ball:hover {
+  height: 70px;
+  border-radius: 50%;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
+  margin-top: -10px;
+}
+
 span {
   color: whitesmoke;
 }
