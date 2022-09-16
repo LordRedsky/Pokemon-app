@@ -14,6 +14,7 @@ export default {
       "showDetailCollection",
       "isShowDetail",
       "pokemons",
+      "isCatch"
     ]),
   },
   components: { Spinner, PokemonDetail },
@@ -39,7 +40,7 @@ export default {
     openDetailHandler(id) {
       this.setPokemonUrl(id);
       this.showDetailCollection = true;
-      console.log(this.showDetailCollection);
+      this.isCatch = false
     },
   },
   created() {

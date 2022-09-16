@@ -22,7 +22,7 @@ export default {
       "detailPokemon",
       "pokemonCollections",
       "showDetailCollection",
-      "isCatch"
+      "isCatch",
     ]),
   },
   methods: {
@@ -162,7 +162,7 @@ export default {
       </div>
 
       <!-- POKEBALL HERE -->
-      <Pokeball v-if="isCatch" @click.prevent="collectionHandler"/>
+      <Pokeball v-if="isCatch" @click.prevent="collectionHandler" />
     </div>
     <Spinner v-else />
   </div>

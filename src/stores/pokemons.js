@@ -22,6 +22,7 @@ export const usePokemonStore = defineStore({
     setPokemonUrl(id) {
       this.pokemonUrl = `https://pokeapi.co/api/v2/pokemon-species/${id}`
       this.isShowDetail = true
+      this.isCatch = true
     },
 
     closeDetail() {
