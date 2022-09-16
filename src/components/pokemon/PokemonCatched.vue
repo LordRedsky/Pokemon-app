@@ -14,7 +14,7 @@ export default {
       "showDetailCollection",
       "isShowDetail",
       "pokemons",
-      "isCatch"
+      "isCatch",
     ]),
   },
   components: { Spinner, PokemonDetail },
@@ -40,7 +40,7 @@ export default {
     openDetailHandler(id) {
       this.setPokemonUrl(id);
       this.showDetailCollection = true;
-      this.isCatch = false
+      this.isCatch = false;
     },
   },
   created() {
@@ -73,7 +73,7 @@ export default {
       </div>
     </article>
     <div v-if="pokemonCollectionsId.length === 0">
-      <h1>You have no collection</h1>
+      <h1 class="empty">You have no collection</h1>
     </div>
     <div>
       <PokemonDetail v-if="isShowDetail === true" @click.prevent="closeDetail" />
@@ -99,23 +99,24 @@ export default {
   font-weight: normal;
 }
 
-h1 {
-  color: whitesmoke;
-}
-
 .poke-img {
   width: 200px;
   height: 200px;
 }
 
 .poke-name {
-  margin: 0;
+  /* margin: 0; */
+  margin-top: -5px;
   font-size: 30px;
+}
+
+.empty {
+  color: whitesmoke;
 }
 
 .collection article {
   align-items: center;
-  height: 300px;
+  height: 265px;
   width: 200px;
   background-color: whitesmoke;
   text-align: center;
@@ -131,7 +132,7 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 37px;
+  margin-top: -23px;
 }
 .image-pokeball .ball {
   height: 50px;
