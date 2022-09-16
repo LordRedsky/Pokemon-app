@@ -23,13 +23,13 @@ export default {
 
     <ul>
       <li>
-        <router-link to="/">
+        <router-link to="/" @click="slide">
           <fa icon="compass" />
           <span>Explore</span>
         </router-link>
       </li>
       <li>
-        <router-link to="/collections">
+        <router-link to="/collections" @click="slide">
           <fa icon="briefcase" />
           <span>Collection</span>
         </router-link>
@@ -139,7 +139,7 @@ nav ul li a span {
   transform-origin: 0 100%;
 }
 
-.menu-toggle input:checked ~ span:nth-child(2) {
+/* .menu-toggle input:checked ~ span:nth-child(2) {
   background-color: rgb(255, 188, 4);
   transform: rotate(45deg) translate(-1px, -1px);
 }
@@ -152,7 +152,7 @@ nav ul li a span {
 .menu-toggle input:checked ~ span:nth-child(3) {
   opacity: 0;
   transform: scale(0);
-}
+} */
 
 /* Responsive Breakpoint*/
 @media screen and (max-width: 660px) {

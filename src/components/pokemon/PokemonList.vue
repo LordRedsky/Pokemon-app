@@ -134,6 +134,10 @@ export default {
   padding: 10px;
 }
 
+h3 {
+  color: #156f99;
+}
+
 /* .lists article:hover .poke-img {
   position: absolute;
   margin-left: -76px;
