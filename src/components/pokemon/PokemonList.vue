@@ -38,7 +38,6 @@ export default {
           }
         })
         .then((data) => {
-          console.log(data, "<<<<DATA");
           this.nextUrl = data.next;
           data.results.forEach((pokemon) => {
             pokemon.id = pokemon.url
@@ -52,7 +51,7 @@ export default {
           });
         })
         .catch((error) => {
-          console.log(error);
+          // console.log(error);
         });
     },
     scrollTrigger() {

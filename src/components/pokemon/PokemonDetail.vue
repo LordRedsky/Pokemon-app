@@ -13,21 +13,25 @@ export default {
       show: false,
       detailUrl: "",
       catch_rate: "",
+      detailPokemon: {},
+      isSpin: false,
     };
   },
   computed: {
     ...mapWritableState(usePokemonStore, [
       "pokemonUrl",
       "imageUrl",
-      "detailPokemon",
+      // "detilPokemon",
       "pokemonCollections",
       "showDetailCollection",
       "isCatch",
+      "searchValue",
     ]),
   },
   methods: {
     ...mapActions(usePokemonStore, ["setCollection"]),
     fetcDetailPokemon() {
+      console.log(this.searchValue);
       let req = new Request(this.pokemonUrl);
       fetch(req)
         .then((resp) => {
@@ -36,18 +40,25 @@ export default {
           }
         })
         .then((data) => {
-          console.log(data.capture_rate);
           this.catch_rate = data.capture_rate;
           this.detailUrl = data.varieties[0].pokemon.url;
           this.fetchDetail();
         })
         .catch((error) => {
-          console.log(error);
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Pokemon is not found!",
+            footer: 'Please enter the correct name',
+          });
+          this.searchValue = "";
         });
     },
 
     fetchDetail() {
+      console.log("masuk", "<<><><><>");
       let req = new Request(this.detailUrl);
+      console.log("masuk");
       fetch(req)
         .then((resp) => {
           if (resp.status === 200) {
@@ -59,6 +70,7 @@ export default {
           this.show = true;
         })
         .catch((error) => {
+          console.log("error 02");
           console.log(error);
         });
     },
@@ -69,7 +81,7 @@ export default {
       // const catch_rate = this.detailPokemon.capture_rate;
       const generate = Math.floor(Math.random() * 255);
 
-      console.log(this.catch_rate, generate, "<<<<<<");
+      // console.log(this.catch_rate, generate, "<<<<<<");
 
       if (+this.catch_rate > generate) {
         Swal.fire({
@@ -101,13 +113,14 @@ export default {
 
 <template>
   <div class="detail">
-    <div class="detail-view" v-if="show">
+    <h1>{{ detailPokemon.name }}</h1>
+    <div v-if="show" class="detail-view">
       <div v-if="detailPokemon" class="image">
         <img :src="`${imageUrl}/${detailPokemon.id}.svg`" />
       </div>
-      <div v-if="!detailPokemon" class="not-found">
+      <!-- <div v-if="!detailPokemon" class="not-found">
         <h1>The Pokemon Was Not Found!</h1>
-      </div>
+      </div> -->
 
       <div v-if="detailPokemon" class="data">
         <h2 class="poke-name">{{ detailPokemon.name }}</h2>
@@ -164,7 +177,8 @@ export default {
       <!-- POKEBALL HERE -->
       <Pokeball v-if="isCatch" @click.prevent="collectionHandler" />
     </div>
-    <Spinner v-else />
+    <Spinner v-if="!show" />
+    <!-- <Spinner v-if="isSpin" /> -->
   </div>
 </template>
 
